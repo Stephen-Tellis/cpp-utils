@@ -1,6 +1,10 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project()
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Clang tidy
+include(cmake/StaticAnalyzers.cmake)
 
 if (MSVC)
     add_compile_options(/W4)
