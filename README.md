@@ -64,6 +64,24 @@ And to your *package.xml*:
 </package>
 ```
 
+### Building unit tests with gtest
+
+[GTests](https://code.google.com/p/googletest/) are only built if the folder *gtest* exists in the root folder.
+
+Download and use GTest:
+
+```bash
+wget https://github.com/google/googletest/archive/release-1.7.0.zip
+unzip release-1.7.0.zip
+ln -s googletest-release-1.7.0 gtest
+mkdir build
+cd build
+cmake .. -DUSE_CMAKE=true -DBUILD_TEST=true
+make
+```
+
+Note that `USE_CMAKE` defaults to `true` if catkin is not installed.
+
 ## References:
 [kindr](https://github.com/ethz-asl/kindr)  
 [Cyrill Stachniss C++](https://www.youtube.com/watch?v=sZK6ouwREXA&list=PLgnQpQtFTOGRM59sr3nSL8BmeMZR9GCIA)  
