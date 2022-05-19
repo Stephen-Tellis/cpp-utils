@@ -12,7 +12,14 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-include_directories(include/)
+include_directories(include)
+
+# To install a lib
+# set(CMAKE_INSTALL_PREFIX install) # Prevents systemwide install
+# install(TARGETS )
+
+# When this is a top level cmake
+# add_subdirectories(src)
 
 # create libraries
 add_library()
@@ -22,3 +29,6 @@ add_executable(main )
 
 # Linker binding
 target_link_libraries(main )
+
+
+# This is just a template. EDIT BEFORE USE
