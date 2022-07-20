@@ -6,6 +6,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Clang tidy
 include(cmake/StaticAnalyzers.cmake)
 
+# Set build type if not set
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 if (MSVC)
     add_compile_options(/W4)
 else()
@@ -13,6 +18,18 @@ else()
 endif()
 
 include_directories(include)
+
+## Use external libs
+## CMake will search here for Find <pkg >.cmake files
+# SET( CMAKE_MODULE_PATH
+#    ${PROJECT_SOURCE_DIR}/ cmake_modules )
+
+## Search for Findsome_pkg.cmake file and load it
+# find_package(some_pkg )
+
+## Add the include folders from some_pkg
+# include_directories(${some_pkg_INCLUDE_DIRS})
+##
 
 ## To install a lib
 # set(CMAKE_INSTALL_PREFIX install) # Prevents systemwide install
@@ -33,7 +50,6 @@ include_directories(include)
 # COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_BINARY})
 
 ## Build
-# When this is a top level cmake
 # add_subdirectories(src)
 # create libraries
 add_library()
